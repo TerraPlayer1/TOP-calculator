@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: silver;
+  border-radius: 4%;
   padding: 3px;
   border: 2px solid black;
   width: 26vh;
@@ -28,6 +29,9 @@ body {
   background-color:rgb(198, 228, 192);
   color: rgb(1, 36, 1);
   min-height: 20px;
+  border-color: black;
+  border-style: inset;
+  border-width: 2px;
 }
 
 .prev {
@@ -46,4 +50,29 @@ body {
 #zero {
   grid-column-start: 1;
   grid-column-end: 3;
+}
+
+.input {
+   border-radius: 6%;
+   border-color: black;
+}
+
+.number {
+  background-color: rgb(118, 184, 184);
+}
+
+.dec, .mod {
+  background-color:  #7f9faa;
+}
+
+.eval {
+  background-color: cornflowerblue;
+}
+
+.opr {
+  background-color: #ff9f55;
+}
+
+.clear, .sClear{
+  background-color: #559faa;
 }
