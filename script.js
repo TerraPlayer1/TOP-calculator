@@ -46,6 +46,7 @@ document.addEventListener("keydown", (e) => {
       display.textContent = secNum += e.key; 
     } else display.textContent = firstNum += e.key;
   };
+
   if(e.key === "*" || e.key === "x"){
     oprInput("*");
   } else if(e.key === "-"){
@@ -58,6 +59,10 @@ document.addEventListener("keydown", (e) => {
     oprInput("=");
   } else if(e.key === "."){
     decimal();
+  } else if(e.key === "Escape"){
+    clear();
+  } else if(e.key === "Backspace"){
+    sClear();
   };
 });
 
@@ -100,7 +105,7 @@ function decimal(){
     display.textContent = firstNum;
   };
 };
-function equal(){
+function equal(){ //TODO: Round decimals
   if(!firstNum || !secNum){ // If both numbers are not present, don't proceed
   } else if(firstNum === "0" || secNum=== "0") {
     display.textContent = "Stop right there, criminal scum! Nobody breaks the law on my watch!"
