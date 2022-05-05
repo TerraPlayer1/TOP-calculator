@@ -56,15 +56,7 @@ sClear.addEventListener("click", function sClear(){
 });
 
 let regex = /([.])/; 
-dec.addEventListener("click", function decimal(){ 
-  if(oprPresent && !regex.test(secNum)) {
-    secNum === "" ? secNum += "0." : secNum += ".";
-    display.textContent = secNum;
-  } else if(!regex.test(firstNum) && !regex.test(secNum)){
-    firstNum === "" ? firstNum += "0." : firstNum += ".";
-    display.textContent = firstNum;
-  };
-});
+dec.addEventListener("click", decimal);
 
 let regex2 = /([0-9])/;
 document.addEventListener("keydown", (e) => {
@@ -84,6 +76,8 @@ document.addEventListener("keydown", (e) => {
     oprInput("/");
   } else if(e.key === "Enter" || e.key === "="){
     oprInput("=");
+  } else if(e.key === "."){
+    decimal();
   };
 });
 
@@ -116,4 +110,13 @@ function oprInput(opr){
     equal();
   };
   oprType = opr;
+};
+function decimal(){ 
+  if(oprPresent && !regex.test(secNum)) {
+    secNum === "" ? secNum += "0." : secNum += ".";
+    display.textContent = secNum;
+  } else if(!regex.test(firstNum) && !regex.test(secNum)){
+    firstNum === "" ? firstNum += "0." : firstNum += ".";
+    display.textContent = firstNum;
+  };
 };
