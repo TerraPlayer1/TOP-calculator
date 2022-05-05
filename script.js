@@ -6,6 +6,7 @@ const allClear = document.querySelector(".clear");
 const clearEntry = document.querySelector(".sClear")
 const dec = document.querySelector(".dec");
 const mod = document.querySelector(".mod");
+const prev = document.querySelector(".prev")
 
 let firstNum = "";
 let secNum = "";
@@ -29,6 +30,7 @@ operator.forEach(o => {
   });
 });
 
+
 let total = 0;
 calc.addEventListener("click", equal);
 
@@ -40,7 +42,6 @@ mod.addEventListener("click", modify);
 
 let regex = /([.])/; 
 dec.addEventListener("click", decimal);
-
 
 let regex2 = /([0-9])/;
 document.addEventListener("keydown", (e) => {
@@ -70,6 +71,7 @@ document.addEventListener("keydown", (e) => {
   };
 });
 
+
 function add(a, b){
   return a+b;
 };
@@ -90,6 +92,7 @@ function calculate(opr, num1, num2) {
         :add(num1, num2)
 };
 function oprInput(opr){
+
   if(!firstNum){
     // Do nothing
   } else if(firstNum){ // Move on to writing second number
@@ -99,6 +102,8 @@ function oprInput(opr){
     equal();
   };
   oprType = opr;
+  prev.textContent = firstNum;
+  prev.textContent += ` ${oprType}`;
 };
 function decimal(){ 
   if(oprPresent && !regex.test(secNum)) {
@@ -123,7 +128,7 @@ function clear(){
   firstNum = secNum = oprType = "";
   total = 0;
   oprPresent = false;
-  display.textContent = "0";
+  display.textContent = prev.textContent = "0";
 };
 function sClear(){
   if(oprPresent){
