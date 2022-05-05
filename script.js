@@ -1,5 +1,5 @@
 const num = document.querySelectorAll(".number");
-const display = document.querySelector(".screen");
+const display = document.querySelector(".curr");
 const operator = document.querySelectorAll(".opr");
 const calc = document.querySelector(".eval");
 const allClear = document.querySelector(".clear");
