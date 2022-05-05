@@ -76,11 +76,12 @@ dec.addEventListener("click", function decimal(){
 
 let regex2 = /([0-9])/;
 document.addEventListener("keydown", (e) => {
-  if (oprPresent && regex2.test(e.key)) {
-    display.textContent = secNum += e.key; 
-  } else if (regex2.test(e.key)) {
-    display.textContent = firstNum += e.key;
-  } else display.textContent = "Error 00"
+  if (regex2.test(e.key)){ //If key is num exec this
+    if (oprPresent) {
+      display.textContent = secNum += e.key; 
+    } else display.textContent = firstNum += e.key;
+  };
+
 });
 
 function add(a, b){
