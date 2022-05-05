@@ -1,7 +1,7 @@
 const num = document.querySelectorAll(".number")
 const display = document.querySelector(".screen")
 const operator = document.querySelectorAll(".opr")
-const equal = document.querySelector(".eval")
+const calc = document.querySelector(".eval")
 
 let preOprNum = "";
 let postOprNum = "";
@@ -11,9 +11,11 @@ num.forEach(n => {
     if(oprPresent) {
       postOprNum += n.textContent;
       display.textContent = postOprNum;
+      console.log(preOprNum,postOprNum)
     } else {
     preOprNum += n.textContent;
     display.textContent = preOprNum;
+    console.log(preOprNum,postOprNum)
     };
   });
 });
@@ -24,17 +26,20 @@ let oprType = ""
 
 operator.forEach(o => {
   o.addEventListener("click", function oprClick(e){
+    if (oprType){
+      equal();
+    }
     oprPresent = true;
     oprType = o.textContent;
   });
 });
 
 let total = 0
-equal.addEventListener("click", function add(e){
+calc.addEventListener("click", equal);
+
+function equal(){
   display.textContent = total = operate(oprType, parseFloat(preOprNum), parseFloat(postOprNum));
-});
-
-
+}
 
 
 
