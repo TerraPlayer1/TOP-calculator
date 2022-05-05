@@ -26,7 +26,7 @@ body {
   height: 36vh;
 }
 
-.test {
+.screen {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
