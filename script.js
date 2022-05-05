@@ -105,12 +105,13 @@ function decimal(){
     display.textContent = firstNum;
   };
 };
-function equal(){ //TODO: Round decimals
+function equal(){
   if(!firstNum || !secNum){ // If both numbers are not present, don't proceed
   } else if(firstNum === "0" || secNum=== "0") {
     display.textContent = "Stop right there, criminal scum! Nobody breaks the law on my watch!"
   } else {
-    display.textContent = firstNum = total = calculate(oprType, parseFloat(firstNum), parseFloat(secNum));
+    total = calculate(oprType, parseFloat(firstNum), parseFloat(secNum));
+    display.textContent = firstNum = Math.round((total + Number.EPSILON) * 100) / 100;
     secNum = "";
   };
 };
