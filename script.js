@@ -23,16 +23,8 @@ num.forEach(n => {
 let oprPresent = false;
 let oprType = "";
 operator.forEach(o => {
-  o.addEventListener("click", function oprClick(e){
-    if(!firstNum){
-      // Do nothing
-    } else if(firstNum){ // Move on to writing second number
-      oprPresent = true;
-    };
-    if(oprType){
-      equal();
-    };
-    oprType = o.textContent;
+  o.addEventListener("click", function() {
+    oprInput(o.textContent);
   });
 });
 
@@ -43,7 +35,7 @@ function equal(){
   } else if(firstNum === "0" || secNum=== "0") {
     display.textContent = "Stop right there, criminal scum! Nobody breaks the law on my watch!"
   } else {
-    display.textContent = firstNum = total = operate(oprType, parseFloat(firstNum), parseFloat(secNum));
+    display.textContent = firstNum = total = calculate(oprType, parseFloat(firstNum), parseFloat(secNum));
     secNum = "";
   };
 };
@@ -76,11 +68,20 @@ dec.addEventListener("click", function decimal(){
 
 let regex2 = /([0-9])/;
 document.addEventListener("keydown", (e) => {
-  if (regex2.test(e.key)){ //If key is num exec this
+  if(regex2.test(e.key)){ //If key is num exec this
     if (oprPresent) {
       display.textContent = secNum += e.key; 
     } else display.textContent = firstNum += e.key;
   };
+  // if(e.key === "*" || e.key === "x"){
+  //     oprType = "*";
+  // } else if(e.key === "-"){
+  //     oprType = "-";
+  // } else if(e.key === "+"){
+  //     oprType = "+";
+  // } else if(e.key === "/"){
+  //     oprType = "/";
+  // } 
 
 });
 
@@ -97,9 +98,20 @@ function divide(a, b){
   return a/b;
 };
 
-function operate(opr, num1, num2) {
+function calculate(opr, num1, num2) {
   return opr === "-" ? subtract(num1, num2)
         :opr === "*" ? multiply(num1, num2)
         :opr === "/" ? divide(num1, num2)
         :add(num1, num2)
+};
+function oprInput(opr){
+  if(!firstNum){
+    // Do nothing
+  } else if(firstNum){ // Move on to writing second number
+    oprPresent = true;
+  };
+  if(oprType){
+    equal();
+  };
+  oprType = opr;
 };
