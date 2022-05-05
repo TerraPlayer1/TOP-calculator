@@ -2,8 +2,8 @@ const num = document.querySelectorAll(".number");
 const display = document.querySelector(".screen");
 const operator = document.querySelectorAll(".opr");
 const calc = document.querySelector(".eval");
-const clear = document.querySelector(".clear");
-const sClear = document.querySelector(".sClear")
+const allClear = document.querySelector(".clear");
+const clearEntry = document.querySelector(".sClear")
 const dec = document.querySelector(".dec");
 
 let firstNum = "";
@@ -30,30 +30,10 @@ operator.forEach(o => {
 
 let total = 0;
 calc.addEventListener("click", equal);
-function equal(){
-  if(!firstNum || !secNum){ // If both numbers are not present, don't proceed
-  } else if(firstNum === "0" || secNum=== "0") {
-    display.textContent = "Stop right there, criminal scum! Nobody breaks the law on my watch!"
-  } else {
-    display.textContent = firstNum = total = calculate(oprType, parseFloat(firstNum), parseFloat(secNum));
-    secNum = "";
-  };
-};
 
-clear.addEventListener("click", function clear(){
-  firstNum = secNum = oprType = "";
-  total = 0;
-  oprPresent = false;
-  display.textContent = "0";
-});
+allClear.addEventListener("click", clear);
 
-sClear.addEventListener("click", function sClear(){
-  if(oprPresent){
-    secNum = display.textContent = secNum.slice(0, -1);
-  } else {
-    firstNum = display.textContent = firstNum.slice(0, -1)
-  };
-});
+clearEntry.addEventListener("click", sClear);
 
 let regex = /([.])/; 
 dec.addEventListener("click", decimal);
@@ -118,5 +98,27 @@ function decimal(){
   } else if(!regex.test(firstNum) && !regex.test(secNum)){
     firstNum === "" ? firstNum += "0." : firstNum += ".";
     display.textContent = firstNum;
+  };
+};
+function equal(){
+  if(!firstNum || !secNum){ // If both numbers are not present, don't proceed
+  } else if(firstNum === "0" || secNum=== "0") {
+    display.textContent = "Stop right there, criminal scum! Nobody breaks the law on my watch!"
+  } else {
+    display.textContent = firstNum = total = calculate(oprType, parseFloat(firstNum), parseFloat(secNum));
+    secNum = "";
+  };
+};
+function clear(){
+  firstNum = secNum = oprType = "";
+  total = 0;
+  oprPresent = false;
+  display.textContent = "0";
+};
+function sClear(){
+  if(oprPresent){
+    secNum = display.textContent = secNum.slice(0, -1);
+  } else {
+    firstNum = display.textContent = firstNum.slice(0, -1)
   };
 };
