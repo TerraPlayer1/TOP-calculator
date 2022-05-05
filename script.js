@@ -34,6 +34,10 @@ operator.forEach(o => {
 let total = 0;
 calc.addEventListener("click", equal);
 
+calc.addEventListener("click", function(){ //Display number in prev
+prev.textContent = `= ${total}`
+});
+
 allClear.addEventListener("click", clear);
 
 clearEntry.addEventListener("click", sClear);
