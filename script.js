@@ -68,21 +68,23 @@ dec.addEventListener("click", function decimal(){
 
 let regex2 = /([0-9])/;
 document.addEventListener("keydown", (e) => {
+  e.preventDefault();
   if(regex2.test(e.key)){ //If key is num exec this
     if (oprPresent) {
       display.textContent = secNum += e.key; 
     } else display.textContent = firstNum += e.key;
   };
-  // if(e.key === "*" || e.key === "x"){
-  //     oprType = "*";
-  // } else if(e.key === "-"){
-  //     oprType = "-";
-  // } else if(e.key === "+"){
-  //     oprType = "+";
-  // } else if(e.key === "/"){
-  //     oprType = "/";
-  // } 
-
+  if(e.key === "*" || e.key === "x"){
+    oprInput("*");
+  } else if(e.key === "-"){
+    oprInput("-");
+  } else if(e.key === "+"){
+    oprInput("+");
+  } else if(e.key === "/"){
+    oprInput("/");
+  } else if(e.key === "Enter" || e.key === "="){
+    oprInput("=");
+  };
 });
 
 function add(a, b){
