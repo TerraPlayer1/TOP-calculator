@@ -5,6 +5,7 @@ const calc = document.querySelector(".eval");
 const allClear = document.querySelector(".clear");
 const clearEntry = document.querySelector(".sClear")
 const dec = document.querySelector(".dec");
+const mod = document.querySelector(".mod");
 
 let firstNum = "";
 let secNum = "";
@@ -35,8 +36,11 @@ allClear.addEventListener("click", clear);
 
 clearEntry.addEventListener("click", sClear);
 
+mod.addEventListener("click", modify);
+
 let regex = /([.])/; 
 dec.addEventListener("click", decimal);
+
 
 let regex2 = /([0-9])/;
 document.addEventListener("keydown", (e) => {
@@ -127,4 +131,10 @@ function sClear(){
   } else {
     firstNum = display.textContent = firstNum.slice(0, -1)
   };
+};
+function modify(){
+    display.textContent == firstNum ? display.textContent = firstNum = display.textContent *= -1
+    :display.textContent == secNum ? display.textContent = secNum = display.textContent *= -1
+    :display.textContent == total ? display.textContent = total = display.textContent *= -1
+    : alert('How did you get this?')
 };
