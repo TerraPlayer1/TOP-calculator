@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 300px;
+}
+.calc-body {
+  display: grid;
+  background-color: silver;
+  padding: 3px;
+  border: 2px solid black;
+  width: 20vh;
+  height: 30vh;
+}
+
+.screen {
+  padding: 5px;
+  background-color:rgb(198, 228, 192);
+  color: rgb(1, 36, 1);
+}
+
+.input-area {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 15%  15% 15% 15% 15%;
+}
+
+#zero {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
