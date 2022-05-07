@@ -16,4 +16,4 @@ function operate(opr, num1, num2) {
         :opr === "*" ? multiply(num1, num2)
         :opr === "/" ? divide(num1, num2)
         :add(num1, num2)
-}
+};
