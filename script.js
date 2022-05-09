@@ -1,3 +1,21 @@
+const num = document.querySelectorAll(".number")
+
+num.forEach(n => {
+  n.addEventListener("click", function click(e){
+    alert("works",e);
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
 function add(a, b){
   return a+b;
 };
