@@ -18,6 +18,8 @@ body {
 }
 
 .screen {
+  display: flex;
+  justify-content: flex-end;
   padding: 4%;
   margin: 2%;
   flex-grow: 1;
