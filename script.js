@@ -1,10 +1,12 @@
 const num = document.querySelectorAll(".number")
-
+const display = document.querySelector(".screen")
+let disNum = "";
 num.forEach(n => {
   n.addEventListener("click", function click(e){
-    alert("works",e);
+    disNum += n.textContent;
+    display.textContent = disNum;
   })
-})
+});
 
 
 
