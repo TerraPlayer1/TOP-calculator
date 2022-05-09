@@ -1,26 +1,34 @@
 body {
+  height: 90vh;
+}
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 300px;
+  min-height: 100%;
 }
 .calc-body {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   background-color: silver;
   padding: 3px;
   border: 2px solid black;
-  width: 20vh;
-  height: 30vh;
+  width: 26vh;
+  height: 36vh;
 }
 
 .screen {
-  padding: 5px;
+  padding: 4%;
+  margin: 2%;
+  flex-grow: 1;
   background-color:rgb(198, 228, 192);
   color: rgb(1, 36, 1);
 }
 
 .input-area {
+  margin: 15px 6px -35%;
   display: grid;
+  flex-grow: 1;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 15%  15% 15% 15% 15%;
 }
