@@ -1,15 +1,30 @@
 const num = document.querySelectorAll(".number")
 const display = document.querySelector(".screen")
-let disNum = "";
+const operator = document.querySelectorAll(".opr")
+
+let preOprNum = "";
+let postOprNum = "";
+
 num.forEach(n => {
   n.addEventListener("click", function click(e){
-    disNum += n.textContent;
-    display.textContent = disNum;
-  })
+    if(oprPresent) {
+      postOprNum += n.textContent;
+      display.textContent = postOprNum;
+    } else {
+    preOprNum += n.textContent;
+    display.textContent = preOprNum;
+    };
+  });
 });
 
-
-
+let oprPresent = false;
+let oprType = ""
+operator.forEach(o => {
+  o.addEventListener("click",function oprClick(e){
+    oprPresent = true;
+    oprType = o.textContent;
+  });
+});
 
 
 
