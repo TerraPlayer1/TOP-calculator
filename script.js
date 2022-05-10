@@ -38,7 +38,8 @@ let total = 0
 calc.addEventListener("click", equal);
 
 function equal(){
-  display.textContent = total = operate(oprType, parseFloat(preOprNum), parseFloat(postOprNum));
+  display.textContent = preOprNum = total = operate(oprType, parseFloat(preOprNum), parseFloat(postOprNum));
+  postOprNum = "";
 }
 
 
