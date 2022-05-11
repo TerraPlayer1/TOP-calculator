@@ -1,7 +1,7 @@
-const num = document.querySelectorAll(".number")
-const display = document.querySelector(".screen")
-const operator = document.querySelectorAll(".opr")
-const calc = document.querySelector(".eval")
+const num = document.querySelectorAll(".number");
+const display = document.querySelector(".screen");
+const operator = document.querySelectorAll(".opr");
+const calc = document.querySelector(".eval");
 
 let firstNum = "";
 let secNum = "";
@@ -22,14 +22,18 @@ num.forEach(n => {
 
 
 let oprPresent = false;
-let oprType = ""
+let oprType = "";
 
 operator.forEach(o => {
   o.addEventListener("click", function oprClick(e){
-    if (oprType){
+    if(!firstNum){
+      // Do nothing
+    } else if(firstNum){ // Move on to writing second number
+      oprPresent = true;
+    };
+    if(oprType){
       equal();
-    }
-    oprPresent = true;
+    };
     oprType = o.textContent;
   });
 });
@@ -38,9 +42,12 @@ let total = 0
 calc.addEventListener("click", equal);
 
 function equal(){
-  display.textContent = firstNum = total = operate(oprType, parseFloat(firstNum), parseFloat(secNum));
-  secNum = "";
-}
+  if(!firstNum || !secNum){
+  } else {
+    display.textContent = firstNum = total = operate(oprType, parseFloat(firstNum), parseFloat(secNum));
+    secNum = "";
+  };
+};
 // TODO: Deal with nan when equal is called with no second number present
 
 
