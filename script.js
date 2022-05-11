@@ -11,11 +11,9 @@ num.forEach(n => {
     if(oprPresent) {
       secNum += n.textContent;
       display.textContent = secNum;
-      console.log(firstNum,secNum)
     } else {
     firstNum += n.textContent;
     display.textContent = firstNum;
-    console.log(firstNum,secNum)
     };
   });
 });
@@ -42,13 +40,12 @@ let total = 0
 calc.addEventListener("click", equal);
 
 function equal(){
-  if(!firstNum || !secNum){
+  if(!firstNum || !secNum){ // If both numbers are not present, don't proceed
   } else {
     display.textContent = firstNum = total = operate(oprType, parseFloat(firstNum), parseFloat(secNum));
     secNum = "";
   };
 };
-// TODO: Deal with nan when equal is called with no second number present
 
 
 function add(a, b){
