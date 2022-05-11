@@ -36,7 +36,7 @@ operator.forEach(o => {
   });
 });
 
-let total = 0
+let total = 0;
 calc.addEventListener("click", equal);
 
 function equal(){
