@@ -2,6 +2,7 @@ const num = document.querySelectorAll(".number");
 const display = document.querySelector(".screen");
 const operator = document.querySelectorAll(".opr");
 const calc = document.querySelector(".eval");
+const clear = document.querySelector(".clear");
 
 let firstNum = "";
 let secNum = "";
@@ -43,6 +44,12 @@ function equal(){
   };
 };
 
+clear.addEventListener("click", function clear(e){
+  firstNum = secNum = oprType = "";
+  total = 0;
+  oprPresent = false;
+  display.textContent = "0";
+})
 
 function add(a, b){
   return a+b;
