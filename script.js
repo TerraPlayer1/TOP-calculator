@@ -5,7 +5,6 @@ const calc = document.querySelector(".eval");
 
 let firstNum = "";
 let secNum = "";
-
 num.forEach(n => {
   n.addEventListener("click", function click(e){
     if(oprPresent) {
@@ -18,10 +17,8 @@ num.forEach(n => {
   });
 });
 
-
 let oprPresent = false;
 let oprType = "";
-
 operator.forEach(o => {
   o.addEventListener("click", function oprClick(e){
     if(!firstNum){
@@ -38,7 +35,6 @@ operator.forEach(o => {
 
 let total = 0;
 calc.addEventListener("click", equal);
-
 function equal(){
   if(!firstNum || !secNum){ // If both numbers are not present, don't proceed
   } else {
