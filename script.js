@@ -55,7 +55,7 @@ clear.addEventListener("click", function clear(){
 });
 
 let regex = /([.])/g; 
-dec.addEventListener("click", function decimal(){ // TODO: Fix commas still being added to the firstNum after multiple clicks
+dec.addEventListener("click", function decimal(){ // TODO: Fix dot still being added to the firstNum after multiple clicks
   if(regex.test(firstNum) || regex.test(secNum)){
     // Do nothing
   } else if(oprPresent) {
