@@ -3,6 +3,7 @@ const display = document.querySelector(".screen");
 const operator = document.querySelectorAll(".opr");
 const calc = document.querySelector(".eval");
 const clear = document.querySelector(".clear");
+const dec = document.querySelector(".dec");
 
 let firstNum = "";
 let secNum = "";
@@ -38,18 +39,33 @@ let total = 0;
 calc.addEventListener("click", equal);
 function equal(){
   if(!firstNum || !secNum){ // If both numbers are not present, don't proceed
+  } else if(firstNum === "0" || secNum=== "0") {
+    display.textContent = "Stop right there, criminal scum! Nobody breaks the law on my watch!"
   } else {
     display.textContent = firstNum = total = operate(oprType, parseFloat(firstNum), parseFloat(secNum));
     secNum = "";
   };
 };
 
-clear.addEventListener("click", function clear(e){
+clear.addEventListener("click", function clear(){
   firstNum = secNum = oprType = "";
   total = 0;
   oprPresent = false;
   display.textContent = "0";
-})
+});
+
+let regex = /([.])/g; 
+dec.addEventListener("click", function decimal(){ // TODO: Fix commas still being added to the firstNum after multiple clicks
+  if(regex.test(firstNum) || regex.test(secNum)){
+    // Do nothing
+  } else if(oprPresent) {
+    secNum += ".";
+    display.textContent = secNum;
+  } else {
+    firstNum += ".";
+    display.textContent = firstNum;
+  };
+});
 
 function add(a, b){
   return a+b;
