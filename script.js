@@ -59,11 +59,9 @@ dec.addEventListener("click", function decimal(){
   if(oprPresent && !regex.test(secNum)) {
     secNum === "" ? secNum += "0." : secNum += ".";
     display.textContent = secNum;
-    alert("that")
   } else if(!regex.test(firstNum) && !regex.test(secNum)){
     firstNum === "" ? firstNum += "0." : firstNum += ".";
     display.textContent = firstNum;
-    alert("this")
   };
 });
 
