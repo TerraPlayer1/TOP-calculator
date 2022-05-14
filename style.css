@@ -25,6 +25,7 @@ body {
   flex-grow: 1;
   background-color:rgb(198, 228, 192);
   color: rgb(1, 36, 1);
+  min-height: 20px;
 }
 
 .input-area {
