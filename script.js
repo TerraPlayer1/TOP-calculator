@@ -3,6 +3,7 @@ const display = document.querySelector(".screen");
 const operator = document.querySelectorAll(".opr");
 const calc = document.querySelector(".eval");
 const clear = document.querySelector(".clear");
+const sClear = document.querySelector(".sClear")
 const dec = document.querySelector(".dec");
 
 let firstNum = "";
@@ -52,6 +53,14 @@ clear.addEventListener("click", function clear(){
   total = 0;
   oprPresent = false;
   display.textContent = "0";
+});
+
+sClear.addEventListener("click", function sClear(){
+  if(oprPresent){
+    secNum = display.textContent = secNum.slice(0, -1);
+  } else {
+    firstNum = display.textContent = firstNum.slice(0, -1)
+  };
 });
 
 let regex = /([.])/; 
